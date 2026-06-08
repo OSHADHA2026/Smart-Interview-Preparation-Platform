@@ -1,0 +1,66 @@
+.navbar {
+    background-color: #089fea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.navbar ul li {
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar ul li:hover {
+    color: #dbeafe;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn1,
+.btn2 {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn1{
+    background: rgb(255, 255, 255);
+    color: #090b0b;
+}
+
+.btn2 {
+    background: #0f172a;
+    color: rgb(251, 251, 251);
+}
+
+.btn1:hover,
+.btn2:hover {
+    transform: translateY(-2px);
+}
