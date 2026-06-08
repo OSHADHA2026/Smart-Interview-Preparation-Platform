@@ -1,0 +1,70 @@
+.dashboard {
+    padding: 40px;
+}
+
+.dashboard h1 {
+    color: #1e293b;
+    margin-bottom: 30px;
+}
+
+.stats {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    min-width: 250px;
+
+    background: white;
+    border-radius: 15px;
+
+    padding: 25px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    font-size: 18px;
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 32px;
+    font-weight: bold;
+    color: #089fea;
+}
+
+.activity {
+    margin-top: 40px;
+
+    background: white;
+
+    padding: 25px;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.activity h2 {
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.activity ul {
+    list-style: none;
+}
+
+.activity li {
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e7eb;
+    color: #475569;
+}
