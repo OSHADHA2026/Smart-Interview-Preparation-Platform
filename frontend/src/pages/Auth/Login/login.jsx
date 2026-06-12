@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Auth.css";
+import { loginUser } from "../../../services/authServices";
 
 function Login() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function Login() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.email || 
       !formData.password) {
@@ -32,6 +33,18 @@ function Login() {
         alert("Password must be at least 8 characters");
         return;
       }
+
+      // call login API
+      // handle response
+      const result = await loginUser(formData);
+      if (!result.success) {
+        alert(result.message);
+        return;
+      }
+
+      // STORE TOKEN HERE
+      localStorage.setItem("token", result.token);
+
       alert("Login successful!");
       navigate("/dashboard");
     };

@@ -1,5 +1,7 @@
 import {useState} from "react"
 import "../Auth.css"
+import { registerUser } from "../../../services/authServices";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -16,7 +18,7 @@ function Register() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if(!formData.name || 
@@ -45,8 +47,16 @@ function Register() {
         alert("Passwords do not match");
         return;
       }
-    
+
+      // call register service
+    // handle response
+    const result = await registerUser(formData);
+    if (!result.success) {
+      alert(result.message);
+      return;
+    }
       alert("Account created successfully!");
+      navigate("/login");
   };
 
 
