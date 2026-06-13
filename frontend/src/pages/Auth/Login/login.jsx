@@ -2,9 +2,16 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Auth.css";
 import { loginUser } from "../../../services/authServices";
+import { AuthContext } from "../../../context/AppRoutes";
+import { useContext } from "react";
+
 
 function Login() {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+
+   // If user is already logged in, redirect to dashboard
+   
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -41,10 +48,11 @@ function Login() {
         alert(result.message);
         return;
       }
+      console.log(result);
 
       // STORE TOKEN HERE
-      localStorage.setItem("token", result.token);
-
+      //localStorage.setItem("token", result.token);
+      login(result.user, result.token);
       alert("Login successful!");
       navigate("/dashboard");
     };

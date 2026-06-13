@@ -6,7 +6,7 @@ export const login = async (req, res) => {
     try {
         // 1. Get email and password
         const { email, password } = req.body;
-
+        
         // 2. Find user by email
         const user = await User.findOne({ email });
         if (!user) {
@@ -14,20 +14,14 @@ export const login = async (req, res) => {
                 message: "Invalid credentials"
             });
         }
+        
         // 3. Compare passwords
         const isMatch =
         await bcrypt.compare(
         password,
         user.password
         );
-
-        if (isMatch) {
-            return res.status(201).json({
-                success: true,
-                message: "Login successful"
-            });
-        }
-
+        
         // 4. Generate JWT token
         const token = jwt.sign(
             {
@@ -42,10 +36,18 @@ export const login = async (req, res) => {
                 expiresIn: "1h"
             }
         );
-
+        
         // 5. Return token
-        res.json({
-            token
+        res.status(200).json({
+            success: true,
+            message: "Login successful",
+            token: token,
+            user: {
+            id: user._id,
+            name: user.name,
+            email: user.email
+            }
+        
         });
 
     } catch (error) {

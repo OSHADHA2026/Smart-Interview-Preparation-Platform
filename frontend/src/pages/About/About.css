@@ -1,0 +1,29 @@
+.about-container {
+    padding: 50px;
+    text-align: center;
+}
+
+.about-container h1 {
+    margin-bottom: 20px;
+}
+
+.about-container p {
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.about-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.about-card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.15);
+}
